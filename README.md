@@ -1,3 +1,4 @@
+<img width="1916" height="935" alt="screenshot" src="https://github.com/user-attachments/assets/675d5983-b113-4308-9f89-f517bcdbcee7" />  
 ## 🚀 Introducing Querynator5000
 
 To hell with MySQL. Say hello to magic.  
@@ -16,3 +17,6 @@ Ask questions like “show me users who signed up last week” — and let the Q
 
 🖥️Tech Stack: Typescript, React.js, Vite, Tailwind CSS, Lucide, SQL.js, IDB-Keyval, [Pollinations.AI](https://pollinations.ai/)  
 Feedback and contributions are always welcome! 🙌
+
+## 🎥 Video Demonstration
+[Watch The Video](https://youtu.be/6Ih5qI4u0RM) 
