@@ -38,3 +38,28 @@ input:-webkit-autofill:active {
     caret-color: #fff !important;
   }
 }
+
+/* Sleek custom scrollbar styles for dark/light mode */
+::-webkit-scrollbar {
+  width: 8px;
+  background: #181e2a;
+}
+::-webkit-scrollbar-track {
+  background: #181e2a;
+}
+::-webkit-scrollbar-thumb {
+  background: #23293a;
+  border-radius: 8px;
+  border: 2px solid #181e2a;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #374151;
+}
+::-webkit-scrollbar-corner {
+  background: #181e2a;
+}
+
+body {
+  scrollbar-width: thin;
+  scrollbar-color: #23293a #181e2a;
+}
