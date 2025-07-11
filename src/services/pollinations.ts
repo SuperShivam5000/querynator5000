@@ -14,7 +14,7 @@ async function getChatCompletion(messages: Message[]): Promise<string> {
     body: JSON.stringify({
       "model": "openai-large",
       "messages": messages,
-      "referrer": "querygenie"
+      "referrer": "querynator5000"
     }),
   });
 

@@ -13,7 +13,7 @@ export const NaturalLanguageInput: React.FC<NaturalLanguageInputProps> = ({
   onSubmit,
   isGenerating,
   lastGeneratedQuery,
-  placeholder = "Use QueryGenie to explore or manipulate your data using natural language...."
+  placeholder = "Use Querynator5000 to explore or manipulate your data using natural language...."
 }) => {
   const [input, setInput] = useState('');
 
@@ -45,7 +45,7 @@ export const NaturalLanguageInput: React.FC<NaturalLanguageInputProps> = ({
               AI-Powered Query Generation
             </h2>
             <p className="text-sm text-gray-600 dark:text-gray-400">
-              Describe what you want to do, and QueryGenie will create and execute the perfect SQL query
+              Describe what you want to do, and Querynator5000 will create and execute the perfect SQL query
             </p>
           </div>
         </div>

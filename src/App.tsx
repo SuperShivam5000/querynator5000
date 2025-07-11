@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Toaster } from 'react-hot-toast';
-import { Database, Sparkles } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 import { SqlEditor } from './components/SqlEditor';
 import { NaturalLanguageInput } from './components/NaturalLanguageInput';
 import { ResultsDisplay } from './components/ResultsDisplay';
@@ -19,7 +19,7 @@ interface QueryResult {
 }
 
 function App() {
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
+  const [theme] = useState<'light' | 'dark'>('light');
   const [currentQuery, setCurrentQuery] = useState('-- Write your SQL query here\nSELECT 1;');
   const [queryResults, setQueryResults] = useState<QueryResult | null>(null);
   const [queryError, setQueryError] = useState<string | null>(null);
@@ -148,7 +148,7 @@ function App() {
             <div className="animate-spin rounded-full h-16 w-16 border-4 border-blue-200 border-t-blue-600 mx-auto mb-4"></div>
             <Sparkles className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-blue-600" size={24} />
           </div>
-          <p className="text-gray-600 dark:text-gray-400 text-lg font-medium">Initializing QueryGenie...</p>
+          <p className="text-gray-600 dark:text-gray-400 text-lg font-medium">Initializing Querynator5000...</p>
           <p className="text-gray-500 dark:text-gray-500 text-sm mt-2">Setting up your intelligent database companion</p>
         </div>
       </div>
@@ -166,12 +166,12 @@ function App() {
             <div className="flex items-center space-x-3">
               <img 
                 src="/querygenielogo.png" 
-                alt="QueryGenie Logo" 
+                alt="Querynator5000 Logo" 
                 className="w-12 h-12"
               />
               <div>
                 <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                  QueryGenie
+                  Querynator5000
                 </h1>
                 <p className="text-xs text-gray-500 dark:text-gray-400">Natural Language SQL Interface</p>
               </div>
@@ -215,12 +215,12 @@ function App() {
                 <div className="relative mb-6">
                   <img 
                     src="/querygenielogo.png" 
-                    alt="QueryGenie Logo" 
+                    alt="Querynator5000 Logo" 
                     className="w-24 h-24 mx-auto"
                   />
                 </div>
                 <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-                  Welcome to QueryGenie
+                  Welcome to Querynator5000
                 </h2>
                 <p className="text-gray-600 dark:text-gray-400 mb-6">
                   Create your first database to start building amazing SQL queries with AI assistance.

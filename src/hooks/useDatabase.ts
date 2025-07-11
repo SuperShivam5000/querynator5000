@@ -38,7 +38,7 @@ interface DatabaseInfo {
   lastModified: number;
 }
 
-const DB_NAME = 'QueryGenieDB';
+const DB_NAME = 'Querynator5000DB';
 const DB_VERSION = 3;
 const DATABASE_STORE = 'databases';
 const QUERIES_STORE = 'queries';
@@ -50,7 +50,7 @@ export const useDatabase = () => {
   const [currentDb, setCurrentDb] = useState<any>(null);
   const [currentDbId, setCurrentDbId] = useState<string>('');
   const [idb, setIdb] = useState<IDBPDatabase | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [tables, setTables] = useState<TableSchema[]>([]);
   const [queryHistory, setQueryHistory] = useState<SavedQuery[]>([]);
   const [databases, setDatabases] = useState<DatabaseInfo[]>([]);
@@ -61,7 +61,7 @@ export const useDatabase = () => {
       try {
         // Initialize SQL.js
         const sqlModule = await initSqlJs({
-          locateFile: file => `https://sql.js.org/dist/${file}`
+          locateFile: (file: string) => `https://sql.js.org/dist/${file}`
         });
         setSQL(sqlModule);
 
@@ -464,8 +464,7 @@ export const useDatabase = () => {
     } catch (error) {
       throw new Error(error instanceof Error ? error.message : 'Query execution failed');
     }
-  }
-  )
+  }, [currentDb, idb, SQL, currentDbId, saveDatabase, loadTables, loadDatabaseList, loadQueryHistory]);
 
   const saveQuery = useCallback(async (query: string, description?: string) => {
     if (!idb || !currentDbId) return;
