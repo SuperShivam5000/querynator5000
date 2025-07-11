@@ -30,6 +30,22 @@ function App() {
   const [lastGeneratedQuery, setLastGeneratedQuery] = useState<string>('');
   const [showCreateDatabaseModal, setShowCreateDatabaseModal] = useState(false);
 
+  // Reset UI state when switching databases
+  const handleSwitchDatabase = async (dbId: string) => {
+    // Call the hook's switchDatabase
+    await switchDatabase(dbId);
+    // Reset all UI state
+    setCurrentQuery('-- Write your SQL query here\nSELECT 1;');
+    setQueryResults(null);
+    setQueryError(null);
+    setSelectedTable(null);
+    setShowHistory(false);
+    setLastGeneratedQuery('');
+    setIsExecuting(false);
+    setIsGenerating(false);
+    setShowCreateDatabaseModal(false);
+  };
+
   const {
     isLoading,
     tables,
@@ -38,13 +54,44 @@ function App() {
     currentDbId,
     executeQuery,
     saveQuery,
-    deleteQuery,
     toggleFavorite,
-    createNewDatabase,
+    loadTables,
+    // Wrap createNewDatabase and deleteDatabase to reset UI after auto-switch
+    createNewDatabase: originalCreateNewDatabase,
     switchDatabase,
-    deleteDatabase,
-    loadTables
+    deleteDatabase: originalDeleteDatabase,
+    deleteQuery
   } = useDatabase();
+
+  // Wrap createNewDatabase to reset UI after auto-switch
+  const createNewDatabase = async (name: string, description?: string) => {
+    await originalCreateNewDatabase(name, description);
+    // After auto-switch, reset UI
+    setCurrentQuery('-- Write your SQL query here\nSELECT 1;');
+    setQueryResults(null);
+    setQueryError(null);
+    setSelectedTable(null);
+    setShowHistory(false);
+    setLastGeneratedQuery('');
+    setIsExecuting(false);
+    setIsGenerating(false);
+    setShowCreateDatabaseModal(false);
+  };
+
+  // Wrap deleteDatabase to reset UI after auto-switch
+  const deleteDatabase = async (dbId: string) => {
+    await originalDeleteDatabase(dbId);
+    // After auto-switch, reset UI
+    setCurrentQuery('-- Write your SQL query here\nSELECT 1;');
+    setQueryResults(null);
+    setQueryError(null);
+    setSelectedTable(null);
+    setShowHistory(false);
+    setLastGeneratedQuery('');
+    setIsExecuting(false);
+    setIsGenerating(false);
+    setShowCreateDatabaseModal(false);
+  };
 
   // Apply theme
   useEffect(() => {
@@ -183,7 +230,7 @@ function App() {
                 databases={databases}
                 currentDbId={currentDbId}
                 onCreateDatabase={createNewDatabase}
-                onSwitchDatabase={switchDatabase}
+                onSwitchDatabase={handleSwitchDatabase}
                 onDeleteDatabase={deleteDatabase}
                 showCreateForm={showCreateDatabaseModal}
                 onCloseCreateForm={() => setShowCreateDatabaseModal(false)}
