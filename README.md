@@ -1,6 +1,8 @@
+# Querynator5000
+
 <img width="1916" height="935" alt="screenshot" src="https://github.com/user-attachments/assets/675d5983-b113-4308-9f89-f517bcdbcee7" />  
 
-## 🚀 Introducing Querynator5000
+## 🚀 Querynator5000 - Natural Language SQL Interface
 
 To hell with MySQL. Say hello to magic.  
 Tired of writing SQL queries by hand? Sick of clunky, outdated interfaces?  
