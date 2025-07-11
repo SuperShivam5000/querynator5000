@@ -1,4 +1,5 @@
 <img width="1916" height="935" alt="screenshot" src="https://github.com/user-attachments/assets/675d5983-b113-4308-9f89-f517bcdbcee7" />  
+
 ## 🚀 Introducing Querynator5000
 
 To hell with MySQL. Say hello to magic.  
