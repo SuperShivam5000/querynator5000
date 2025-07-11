@@ -6,7 +6,7 @@ Tired of writing SQL queries by hand? Sick of clunky, outdated interfaces?
 Querynator5000 is a modern, AI-first SQL platform that runs entirely in your browser, letting you explore and manipulate your database with natural language.   
 Ask questions like “show me users who signed up last week” — and let the Querynator handle the rest.
 
-🔮 Key Features:  
+## 🔮 Key Features:  
 🧠 Natural Language to SQL — Powered by AI, speak human, get SQL.  
 🪄 Manual Query Support — Still a control freak? Go for it. Write, save & run queries.  
 📊 Clean Modern UI — View data as tables, JSON, or raw — beautifully rendered.  
