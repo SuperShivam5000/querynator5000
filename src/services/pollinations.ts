@@ -77,6 +77,7 @@ SQL Query:`;
       }
     ];
 
+    console.log('LLM messages:', JSON.stringify(messages, null, 2));
     const sqlQuery = await getChatCompletion(messages);
     
     if (!sqlQuery) {
