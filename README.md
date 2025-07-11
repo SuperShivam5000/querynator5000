@@ -14,5 +14,5 @@ Ask questions like “show me users who signed up last week” — and let the Q
 💾 Local Persistence — Saves your queries and databases in your browser.  
 ⚡ Runs entirely in the browser. No servers, no setup, no nonsense.
 
-🖥️Tech Stack: Typescript, React.js, Vite, Tailwind CSS, Lucide, SQL.js, IDB-Keyval, [Pollinations.AI](https://pollinations.ai/)
+🖥️Tech Stack: Typescript, React.js, Vite, Tailwind CSS, Lucide, SQL.js, IDB-Keyval, [Pollinations.AI](https://pollinations.ai/)  
 Feedback and contributions are always welcome! 🙌
