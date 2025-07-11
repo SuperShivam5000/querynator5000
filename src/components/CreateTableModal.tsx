@@ -114,9 +114,8 @@ export const CreateTableModal: React.FC<CreateTableModalProps> = ({
 
     // Validate columns
     const columnNames = new Set<string>();
-    let hasPrimaryKey = false;
 
-    columns.forEach((col, index) => {
+    columns.forEach((col) => {
       const colKey = `column_${col.id}`;
       
       if (!col.name.trim()) {
@@ -130,7 +129,7 @@ export const CreateTableModal: React.FC<CreateTableModalProps> = ({
       }
 
       if (col.primaryKey) {
-        hasPrimaryKey = true;
+        // ...existing code...
       }
     });
 
@@ -289,14 +288,14 @@ export const CreateTableModal: React.FC<CreateTableModalProps> = ({
               </div>
 
               <div className="space-y-4 max-h-80 overflow-y-auto">
-                {columns.map((column, index) => (
+                {columns.map((column) => (
                   <div
                     key={column.id}
                     className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4 border border-gray-200 dark:border-gray-600"
                   >
                     <div className="flex items-center justify-between mb-3">
                       <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                        Column {index + 1}
+                        Column {columns.indexOf(column) + 1}
                       </span>
                       {columns.length > 1 && (
                         <button
@@ -431,7 +430,7 @@ export const CreateTableModal: React.FC<CreateTableModalProps> = ({
 
             {/* SQL Preview */}
             <div className="mb-6">
-              <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2 flex items-center">
+              <label className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2 flex items-center">
                 <Sparkles className="mr-2 text-purple-500" size={16} />
                 Generated SQL Preview
               </label>

@@ -1,5 +1,5 @@
-import React, { useState, useRef } from 'react';
-import { Play, Save, History, Code2, Sparkles } from 'lucide-react';
+import React, { useRef } from 'react';
+import { Play, Save, History, Code2 } from 'lucide-react';
 import { clsx } from 'clsx';
 
 interface SqlEditorProps {
@@ -9,7 +9,7 @@ interface SqlEditorProps {
   isExecuting: boolean;
   onSave: () => void;
   onLoadHistory: () => void;
-  theme: 'light' | 'dark';
+  theme?: 'light' | 'dark'; // Optional, not used
 }
 
 export const SqlEditor: React.FC<SqlEditorProps> = ({
@@ -19,7 +19,7 @@ export const SqlEditor: React.FC<SqlEditorProps> = ({
   isExecuting,
   onSave,
   onLoadHistory,
-  theme
+  // theme
 }) => {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
@@ -123,6 +123,9 @@ export const SqlEditor: React.FC<SqlEditorProps> = ({
           placeholder="-- Write your SQL query here
 SELECT * FROM table_name LIMIT 10;"
           spellCheck={false}
+          style={{
+            paddingLeft: `${Math.max(2, query.split('\n').length.toString().length) * 8 + 24}px`
+          }}
         />
         
         {/* Line numbers overlay */}
@@ -136,12 +139,6 @@ SELECT * FROM table_name LIMIT 10;"
           </div>
         </div>
         
-        {/* Left padding for line numbers */}
-        <style jsx="true">{`
-          textarea {
-            padding-left: ${Math.max(2, query.split('\n').length.toString().length) * 8 + 24}px !important;
-          }
-        `}</style>
       </div>
       
     </div>
