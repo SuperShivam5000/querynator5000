@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { SaveQueryModal } from './components/SaveQueryModal';
 import { Toaster } from 'react-hot-toast';
 import { Sparkles } from 'lucide-react';
 import { SqlEditor } from './components/SqlEditor';
@@ -29,6 +30,8 @@ function App() {
   const [showHistory, setShowHistory] = useState(false);
   const [lastGeneratedQuery, setLastGeneratedQuery] = useState<string>('');
   const [showCreateDatabaseModal, setShowCreateDatabaseModal] = useState(false);
+  const [showSaveQueryModal, setShowSaveQueryModal] = useState(false);
+  const [pendingQueryToSave, setPendingQueryToSave] = useState<string>('');
 
   // Reset UI state when switching databases
   const handleSwitchDatabase = async (dbId: string) => {
@@ -151,11 +154,16 @@ function App() {
     }
   };
 
-  const handleSaveQuery = async () => {
+  const handleSaveQuery = () => {
     if (!currentQuery.trim()) return;
-    
-    const description = prompt('Enter a description for this query (optional):');
-    await saveQuery(currentQuery, description || undefined);
+    setPendingQueryToSave(currentQuery);
+    setShowSaveQueryModal(true);
+  };
+
+  const handleSaveQueryModal = async (description: string) => {
+    await saveQuery(pendingQueryToSave, description || undefined);
+    setShowSaveQueryModal(false);
+    setPendingQueryToSave('');
   };
 
   const handleTableSelect = (tableName: string) => {
@@ -328,11 +336,22 @@ function App() {
       {/* Modals */}
       <QueryHistory
         queries={queryHistory}
-        onQuerySelect={setCurrentQuery}
+        onQuerySelect={async (query) => {
+          await handleExecuteQuery(query);
+          setShowHistory(false);
+        }}
         onDeleteQuery={deleteQuery}
         onToggleFavorite={toggleFavorite}
         isOpen={showHistory}
         onClose={() => setShowHistory(false)}
+      />
+      <SaveQueryModal
+        isOpen={showSaveQueryModal}
+        onClose={() => {
+          setShowSaveQueryModal(false);
+          setPendingQueryToSave('');
+        }}
+        onSave={handleSaveQueryModal}
       />
     </div>
   );
