@@ -165,7 +165,7 @@ function App() {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center space-x-3">
               <img 
-                src="/querygenielogo.png" 
+                src="/querynator5000logo.png" 
                 alt="Querynator5000 Logo" 
                 className="w-12 h-12"
               />
@@ -214,7 +214,7 @@ function App() {
               <div className="text-center max-w-md">
                 <div className="relative mb-6">
                   <img 
-                    src="/querygenielogo.png" 
+                    src="/querynator5000logo.png" 
                     alt="Querynator5000 Logo" 
                     className="w-24 h-24 mx-auto"
                   />
