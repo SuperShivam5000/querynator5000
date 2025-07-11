@@ -1,3 +1,40 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Always enforce input text color for theme */
+input {
+  color: #111827;
+  caret-color: #111827;
+}
+
+@media (prefers-color-scheme: dark) {
+  input {
+    color: #fff !important;
+    caret-color: #fff !important;
+  }
+}
+
+/* Autofill background fix for light/dark mode */
+input:-webkit-autofill,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px #fff inset !important;
+  box-shadow: 0 0 0 1000px #fff inset !important;
+  -webkit-text-fill-color: #111827 !important; /* Tailwind gray-900 */
+  caret-color: #111827 !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+@media (prefers-color-scheme: dark) {
+  input:-webkit-autofill,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 1000px #374151 inset !important;
+    box-shadow: 0 0 0 1000px #374151 inset !important;
+    -webkit-text-fill-color: #fff !important;
+    caret-color: #fff !important;
+  }
+}

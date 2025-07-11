@@ -203,6 +203,7 @@ export const DatabaseSelector: React.FC<DatabaseSelectorProps> = ({
                     placeholder="Enter database name"
                     id="new-database-name"
                     name="databaseName"
+                    autoComplete="off"
                     className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200"
                     required
                   />
@@ -219,6 +220,7 @@ export const DatabaseSelector: React.FC<DatabaseSelectorProps> = ({
                     placeholder="Enter database description"
                     id="new-database-description"
                     name="databaseDescription"
+                    autoComplete="off"
                     className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200"
                   />
                 </div>
