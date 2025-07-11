@@ -1,6 +1,6 @@
 {
-  "name": "Querynator 5000",
-  "short_name": "Querynator 5000",
+  "name": "Querynator5000",
+  "short_name": "Querynator",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
