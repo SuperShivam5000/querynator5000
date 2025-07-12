@@ -1,4 +1,5 @@
 # Querynator5000
+<img width="1916" height="1077" alt="Screenshot 2025-07-12 145950" src="https://github.com/user-attachments/assets/50800d9d-29c6-4fb8-9966-70597ce9b75b" />
 
 <img width="1916" height="935" alt="screenshot" src="https://github.com/user-attachments/assets/675d5983-b113-4308-9f89-f517bcdbcee7" />  
 
